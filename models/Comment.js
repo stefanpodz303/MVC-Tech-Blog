@@ -17,7 +17,12 @@ Comment.init(
       validate: {
         // comment must be at least one character
         len: [1],
-      }
+      }   
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,

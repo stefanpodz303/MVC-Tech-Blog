@@ -10,12 +10,12 @@ router.get('/', async (req, res) => {
       attributes: [
                 'id',
                 'title',
-                'content',
-                'created_at'
+                'post_text',
+                'date_created'
             ],
             include: [{
                     model: Comment,
-                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
                     include: {
                         model: User,
                         attributes: ['username']
@@ -49,9 +49,9 @@ router.get('/post/:id', async (req, res) => {
     },  
       attributes: [
         'id',
-        'post_text',
         'title',
-        'created_at',
+        'post_text',
+        'date_created',
       ],
       include: [
         {
@@ -60,7 +60,7 @@ router.get('/post/:id', async (req, res) => {
         },
         {
             model: Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'date_created'],
             include: {
                 model: User,
                 attributes: ['username']
@@ -71,7 +71,7 @@ router.get('/post/:id', async (req, res) => {
 
     const post = postData.get({ plain: true });
 
-    res.render('single-post', {
+    res.render('singlePost', {
       ...post,
       logged_in: req.session.logged_in
     });
