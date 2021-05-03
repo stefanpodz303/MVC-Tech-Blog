@@ -74,7 +74,7 @@ router.get('/', withAuth, async (req, res) => {
   
       const post = postData.get({ plain: true });
   
-      res.render('edit-post', {
+      res.render('editPost', {
         ...post,
         logged_in: true
       });
@@ -103,6 +103,15 @@ router.get('/', withAuth, async (req, res) => {
     }
   });
   
+  router.get('/newPost', withAuth, async (req, res) => {
+    try {  
+      res.render('newPost', {
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
   
   
   module.exports = router;
