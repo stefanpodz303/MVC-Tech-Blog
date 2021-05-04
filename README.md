@@ -41,6 +41,7 @@ https://github.com/stefanpodz303/MVC-Tech-Blog
 
 ## Deployed
 
+https://mvc-tech-blog303.herokuapp.com/
 
 ## GitHub
 - stefanpodz303
