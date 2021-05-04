@@ -30,7 +30,7 @@ User.init(
       allowNull: false,
       validate: {
         // password must be at least 6 characters
-        len: [6],
+        len: [4],
       },
     },
   },
